@@ -1,0 +1,25 @@
+{% extends 'bookstore/base.html' %}
+{% block title %}Libros{% endblock %}
+
+{% block content %}
+<h2>Lista de Libros</h2>
+
+<ul>
+{% for book in books %}
+    <li>
+        <a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a>
+        — Editorial: 
+        <a href="{% url 'editorial_detail' book.editorial.pk %}">
+            {{ book.editorial.name }}
+        </a>
+        <br>
+        Autores:
+        {% for author in book.authors.all %}
+            <a href="{% url 'author_detail' author.pk %}">{{ author.name }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </li>
+{% empty %}
+    <p>No hay libros disponibles.</p>
+{% endfor %}
+</ul>
+{% endblock %}

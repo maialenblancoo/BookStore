@@ -1,0 +1,18 @@
+{% extends 'bookstore/base.html' %}
+{% block title %}Editoriales{% endblock %}
+
+{% block content %}
+<h2>Editoriales</h2>
+
+<ul>
+{% for editorial in editorials %}
+    <li>
+        <a href="{% url 'editorial_detail' editorial.pk %}">
+            {{ editorial.name }}
+        </a>
+    </li>
+{% empty %}
+    <p>No hay editoriales disponibles.</p>
+{% endfor %}
+</ul>
+{% endblock %}

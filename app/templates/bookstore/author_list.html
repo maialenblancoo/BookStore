@@ -1,0 +1,16 @@
+{% extends 'bookstore/base.html' %}
+{% block title %}Autores{% endblock %}
+
+{% block content %}
+<h2>Autores</h2>
+
+<ul>
+{% for author in authors %}
+    <li>
+        <a href="{% url 'author_detail' author.pk %}">{{ author.name }}</a>
+    </li>
+{% empty %}
+    <p>No hay autores registrados.</p>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'bookstore/base.html' %}
+{% block title %}Inicio — Book Store{% endblock %}
+
+{% block content %}
+<h2>Bienvenido a Book Store</h2>
+<p>Explora libros, editoriales y autores. Encuentra tu próxima lectura 📚</p>
+
+<h3>Libros destacados por editorial</h3>
+
+<div>
+    {% for editorial, book in featured_books.items %}
+        <div>
+            <h4>{{ book.title }}</h4>
+            <p><strong>Editorial:</strong> {{ editorial.name }}</p>
+            <a href="{% url 'book_detail' book.pk %}">Ver detalles</a>
+        </div>
+        <hr>
+    {% empty %}
+        <p>No hay libros destacables aún.</p>
+    {% endfor %}
+</div>
+{% endblock %}

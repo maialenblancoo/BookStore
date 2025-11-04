@@ -1,0 +1,25 @@
+{% extends 'bookstore/base.html' %}
+{% block title %}{{ editorial.name }}{% endblock %}
+
+{% block content %}
+<h2>{{ editorial.name }}</h2>
+
+<p>
+{% if editorial.description %}
+    {{ editorial.description }}
+{% else %}
+    <em>Esta editorial no tiene descripción.</em>
+{% endif %}
+</p>
+
+<h3>Libros publicados:</h3>
+<ul>
+{% for book in editorial.books.all %}
+    <li><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></li>
+{% empty %}
+    <p>No hay libros registrados.</p>
+{% endfor %}
+</ul>
+
+<a href="{% url 'editorial_list' %}">Volver</a>
+{% endblock %}
