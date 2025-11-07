@@ -122,6 +122,7 @@ h1, h2, h3, h4 {
     font-family: "Playfair Display", serif;
     color: #2c3e50;
     margin-bottom: 18px;
+    margin-top: 40px;
 }
 
 h2 {
@@ -137,7 +138,7 @@ p {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
-    margin-top: 25px;
+    margin-top: 40px;
 }
 
 .card {
@@ -206,6 +207,7 @@ p {
     border-radius: 18px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     animation: fadeIn 1s ease;
+    margin-top: 25px
 }
 
 .detail-box h2 {

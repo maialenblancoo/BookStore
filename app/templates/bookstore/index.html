@@ -4,12 +4,12 @@
 
 {% block content %}
 
-<div class="hero" style='background-image: url("{% static "bookstore/images/foto_index.png" %}");'>
+<div class="hero" style="background-image: url('{% static "bookstore/images/foto_index.png" %}');">
     <h1>Bienvenido a Book Store</h1>
-    <p>Tu mundo de libros, autores y editoriales en un solo lugar 📚</p>
+    <p>Tu mundo de libros, autores y editoriales en un solo lugar</p>
 </div>
 
-<section class="detail-box" style="margin-top: 25px;">
+<section class="detail-box">
     <h2>¿Qué es Book Store?</h2>
     <p>
         Book Store es una plataforma donde podrás explorar libros clasificados por
@@ -22,7 +22,7 @@
     </p>
 </section>
 
-<section class="card-list" style="margin-top: 40px;">
+<section class="card-list">
     <div class="card">
         <h3>Explora libros</h3>
         <p>Descubre todos los títulos disponibles, clasificados por autor y editorial.</p>
@@ -40,7 +40,7 @@
     </div>
 </section>
 
-<h3 style="margin-top: 40px;">Libros destacados por editorial</h3>
+<h3>Libros destacados por editorial</h3>
 
 <div class="card-list">
     {% for editorial, book in featured_books.items %}
