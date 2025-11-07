@@ -1,22 +1,57 @@
 {% extends 'bookstore/base.html' %}
+{% load static %}
 {% block title %}Inicio — Book Store{% endblock %}
 
 {% block content %}
-<h2>Bienvenido a Book Store</h2>
-<p>Explora libros, editoriales y autores. Encuentra tu próxima lectura 📚</p>
 
-<h3>Libros destacados por editorial</h3>
+<div class="hero" style='background-image: url("{% static "bookstore/images/foto_index.png" %}");'>
+    <h1>Bienvenido a Book Store</h1>
+    <p>Tu mundo de libros, autores y editoriales en un solo lugar 📚</p>
+</div>
 
-<div>
+<section class="detail-box" style="margin-top: 25px;">
+    <h2>¿Qué es Book Store?</h2>
+    <p>
+        Book Store es una plataforma donde podrás explorar libros clasificados por
+        editorial y autor. Aquí encontrarás editoriales como Grupo Planeta,
+        Prentice-Hall o Mac Graw Hill, y autores destacados como Umberto Eco,
+        Noam Chomsky o Isaac Asimov.  
+        Además, podrás ver los detalles de cada editorial y cada autor, incluyendo
+        sus obras asociadas. Algunos libros incluso han sido escritos por más de
+        un autor, y podrás descubrirlos todos aquí.
+    </p>
+</section>
+
+<section class="card-list" style="margin-top: 40px;">
+    <div class="card">
+        <h3>Explora libros</h3>
+        <p>Descubre todos los títulos disponibles, clasificados por autor y editorial.</p>
+        <a href="{% url 'book_list' %}" class="btn">Ver libros</a>
+    </div>
+    <div class="card">
+        <h3>Conoce los autores</h3>
+        <p>Explora biografías y obras de autores reconocidos y emergentes.</p>
+        <a href="{% url 'author_list' %}" class="btn">Ver autores</a>
+    </div>
+    <div class="card">
+        <h3>Descubre editoriales</h3>
+        <p>Consulta las editoriales más importantes y los libros que publican.</p>
+        <a href="{% url 'editorial_list' %}" class="btn">Ver editoriales</a>
+    </div>
+</section>
+
+<h3 style="margin-top: 40px;">Libros destacados por editorial</h3>
+
+<div class="card-list">
     {% for editorial, book in featured_books.items %}
-        <div>
+        <div class="card">
             <h4>{{ book.title }}</h4>
             <p><strong>Editorial:</strong> {{ editorial.name }}</p>
-            <a href="{% url 'book_detail' book.pk %}">Ver detalles</a>
+            <a href="{% url 'book_detail' book.pk %}" class="btn">Ver detalles</a>
         </div>
-        <hr>
     {% empty %}
         <p>No hay libros destacables aún.</p>
     {% endfor %}
 </div>
+
 {% endblock %}

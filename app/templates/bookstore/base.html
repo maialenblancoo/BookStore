@@ -3,28 +3,44 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Book Store{% endblock %}</title>
+
+    <link rel="icon" href="{% static 'bookstore/images/foto_index.png' %}" type="image/png">
 
     <link rel="stylesheet" href="{% static 'bookstore/styles.css' %}">
 </head>
 <body>
+
 <header>
-    <div class="container">
+    <div class="site-header">
         <h1>Book Store</h1>
-        <nav>
-            <a href="{% url 'index' %}">Inicio</a>
-            <a href="{% url 'book_list' %}">Libros</a>
-            <a href="{% url 'editorial_list' %}">Editoriales</a>
-            <a href="{% url 'author_list' %}">Autores</a>
-        </nav>
     </div>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'book_list' %}">Libros</a></li>
+            <li><a href="{% url 'editorial_list' %}">Editoriales</a></li>
+            <li><a href="{% url 'author_list' %}">Autores</a></li>
+        </ul>
+    </nav>
 </header>
 
-<div class="container">
-{% block content %}{% endblock %}
-</div>
+{% block hero %}{% endblock %}
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
 
 <footer>
-    © Book Store
+    <div class="container">
+        <p><strong>Book Store</strong></p>
+        <p>Explora libros, autores y editoriales.</p>
+        <p style="opacity: 0.6; margin-top: 10px;">© {{ now|date:"Y" }} Book Store — Todos los derechos reservados.</p>
+    </div>
 </footer>
+
+{% block scripts %}{% endblock %}
+
 </body>
+</html>

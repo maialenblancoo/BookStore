@@ -1,16 +1,22 @@
 {% extends 'bookstore/base.html' %}
-{% block title %}Autores{% endblock %}
+{% load static %}
+{% block title %}Autores — Book Store{% endblock %}
 
 {% block content %}
 <h2>Autores</h2>
+<p>Conoce a los escritores que dan vida a los libros de nuestra tienda. Explora sus obras, descubre sus estilos y encuentra tus próximos autores favoritos.</p>
 
-<ul>
+<div class="card-list">
 {% for author in authors %}
-    <li>
-        <a href="{% url 'author_detail' author.pk %}">{{ author.name }}</a>
-    </li>
+    <div class="card">
+        <h3>{{ author.name }}</h3>
+        <p><strong>Año de nacimiento:</strong> {{ author.birth_year }}</p>
+        <p>Descubre las obras escritas por este autor y su contribución a la literatura.</p>
+        <a href="{% url 'author_detail' author.pk %}" class="btn">Ver detalles</a>
+    </div>
 {% empty %}
     <p>No hay autores registrados.</p>
 {% endfor %}
-</ul>
+</div>
+
 {% endblock %}

@@ -1,23 +1,23 @@
 {% extends 'bookstore/base.html' %}
+{% load static %}
 {% block title %}{{ book.title }}{% endblock %}
-
 {% block content %}
-<h2>{{ book.title }}</h2>
 
-<p><strong>Año publicación:</strong> {{ book.publication_year }}</p>
+<div class="detail-box">
+    <h2>{{ book.title }}</h2>
+    <p><strong>Año de publicación:</strong> {{ book.publication_year }}</p>
+    <p><strong>Editorial:</strong>
+        <a href="{% url 'editorial_detail' book.editorial.pk %}">
+            {{ book.editorial.name }}
+        </a>
+    </p>
+    <p><strong>Autores:</strong>
+    {% for author in book.authors.all %}
+        <a href="{% url 'author_detail' author.pk %}">{{ author.name }}</a>{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+    </p>
+    <p>Disfruta de este libro y descubre más obras similares en nuestra colección.</p>
+    <a href="{% url 'book_list' %}" class="link-btn">Volver a la lista</a>
+</div>
 
-<p>
-<strong>Editorial:</strong>
-<a href="{% url 'editorial_detail' book.editorial.pk %}">
-    {{ book.editorial.name }}
-</a>
-</p>
-
-<p><strong>Autores:</strong>
-{% for author in book.authors.all %}
-    <a href="{% url 'author_detail' author.pk %}">{{ author.name }}</a>{% if not forloop.last %}, {% endif %}
-{% endfor %}
-</p>
-
-<a href="{% url 'book_list' %}">Volver</a>
 {% endblock %}

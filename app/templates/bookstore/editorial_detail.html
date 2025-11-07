@@ -1,25 +1,30 @@
 {% extends 'bookstore/base.html' %}
+{% load static %}
 {% block title %}{{ editorial.name }}{% endblock %}
-
 {% block content %}
-<h2>{{ editorial.name }}</h2>
 
-<p>
-{% if editorial.description %}
-    {{ editorial.description }}
-{% else %}
-    <em>Esta editorial no tiene descripción.</em>
-{% endif %}
-</p>
+<div class="detail-box">
+    <h2>{{ editorial.name }}</h2>
+    <p>
+    {% if editorial.description %}
+        {{ editorial.description }}
+    {% else %}
+        <em>Esta editorial no tiene descripción.</em>
+    {% endif %}
+    </p>
+    <h3>Libros publicados:</h3>
+    <div class="card-list">
+    {% for book in editorial.books.all %}
+        <div class="card">
+            <h4>{{ book.title }}</h4>
+            <a href="{% url 'book_detail' book.pk %}" class="btn">Ver detalles</a>
+        </div>
+    {% empty %}
+        <p>No hay libros registrados.</p>
+    {% endfor %}
+    </div>
 
-<h3>Libros publicados:</h3>
-<ul>
-{% for book in editorial.books.all %}
-    <li><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></li>
-{% empty %}
-    <p>No hay libros registrados.</p>
-{% endfor %}
-</ul>
+    <a href="{% url 'editorial_list' %}" class="link-btn">Volver</a>
+</div>
 
-<a href="{% url 'editorial_list' %}">Volver</a>
 {% endblock %}

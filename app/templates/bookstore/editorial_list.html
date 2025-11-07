@@ -1,18 +1,25 @@
 {% extends 'bookstore/base.html' %}
-{% block title %}Editoriales{% endblock %}
+{% load static %}
+{% block title %}Editoriales — Book Store{% endblock %}
 
 {% block content %}
 <h2>Editoriales</h2>
+<p>Explora las editoriales que publican las obras disponibles en Book Store. Conoce su historia, su catálogo y los autores con los que colaboran.</p>
 
-<ul>
+<div class="card-list">
 {% for editorial in editorials %}
-    <li>
-        <a href="{% url 'editorial_detail' editorial.pk %}">
-            {{ editorial.name }}
-        </a>
-    </li>
+    <div class="card">
+        <h3>{{ editorial.name }}</h3>
+        {% if editorial.description %}
+            <p>{{ editorial.description|truncatewords:20 }}</p>
+        {% else %}
+            <p><em>Esta editorial no tiene descripción disponible.</em></p>
+        {% endif %}
+        <a href="{% url 'editorial_detail' editorial.pk %}" class="btn">Ver detalles</a>
+    </div>
 {% empty %}
     <p>No hay editoriales disponibles.</p>
 {% endfor %}
-</ul>
+</div>
+
 {% endblock %}
