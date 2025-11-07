@@ -217,13 +217,31 @@ p {
     padding-bottom: 5px;
 }
 
-.detail-box a {
-    color: #0056d6;
+.detail-box a:not(.link-btn) {
+    color: #1c2534;
     text-decoration: none;
     font-weight: 600;
 }
-.detail-box a:hover {
+
+.detail-box a:not(.link-btn):hover {
     text-decoration: underline;
+}
+
+.detail-box .link-btn {
+    background: #0056d6;
+    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.detail-box .link-btn:hover {
+    background: #003d9e;
+    color: white;
 }
 
 footer {
