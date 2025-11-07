@@ -13,7 +13,7 @@
     {% for book in author.book_set.all %}
         <li><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></li>
     {% empty %}
-        <p>No hay libros registrados.</p>
+        <li>No hay libros registrados.</li>
     {% endfor %}
     </ul>
 
