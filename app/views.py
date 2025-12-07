@@ -2,18 +2,22 @@ from django.shortcuts import render, get_object_or_404
 from .models import Book, Author, Editorial
 
 def index(request):
-    '''
     editorials = Editorial.objects.all()
-    featured_books = []
+    featured_books = {}
 
     for editorial in editorials:
-        book = Book.objects.filter(editorial=editorial).order_by('-id').first()
-        if book:
-            featured_books.append(book)
+        latest_book = (
+            Book.objects
+            .filter(editorial=editorial)
+            .order_by('-publication_year')
+            .first()
+        )
+        if latest_book:
+            featured_books[editorial] = latest_book
 
-    return render(request, 'bookstore/index.html', {'featured_books': featured_books})
-    '''
-    return render(request, 'bookstore/index.html')
+    return render(request, 'bookstore/index.html', {
+        'featured_books': featured_books
+    })
 
 def book_list(request):
     books = Book.objects.all()
