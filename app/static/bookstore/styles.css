@@ -262,6 +262,11 @@ footer p {
     font-size: 15px;
 }
 
+.footer-copy {
+    opacity: 0.6;
+    margin-top: 10px;
+}
+
 .site-header {
     background-color: #1c2534;
     color: #fff;
