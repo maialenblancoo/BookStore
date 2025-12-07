@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from .models import Book, Author, Editorial
 
 def index(request):
@@ -20,7 +20,7 @@ def index(request):
     })
 
 def book_list(request):
-    books = Book.objects.all()
+    books = get_list_or_404(Book)
     return render(request, 'bookstore/book_list.html', {'books': books})
 
 def book_detail(request, pk):
@@ -28,7 +28,7 @@ def book_detail(request, pk):
     return render(request, 'bookstore/book_detail.html', {'book': book})
 
 def author_list(request):
-    authors = Author.objects.all()
+    authors = get_list_or_404(Author)
     return render(request, 'bookstore/author_list.html', {'authors': authors})
 
 def author_detail(request, pk):
@@ -36,7 +36,7 @@ def author_detail(request, pk):
     return render(request, 'bookstore/author_detail.html', {'author': author})
 
 def editorial_list(request):
-    editorials = Editorial.objects.all()
+    editorials = get_list_or_404(Editorial)
     return render(request, 'bookstore/editorial_list.html', {'editorials': editorials})
 
 def editorial_detail(request, pk):
