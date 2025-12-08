@@ -1,56 +1,52 @@
 {% extends 'bookstore/base.html' %}
 {% load static %}
-{% block title %}Inicio — Book Store{% endblock %}
+{% load i18n %}
+
+{% block title %}{% trans "Inicio — Book Store" %}{% endblock %}
 
 {% block content %}
 
 <div class="hero" style="background-image: url('{% static "bookstore/images/foto_index.png" %}');">
-    <h1>Bienvenido a Book Store</h1>
-    <p>Tu mundo de libros, autores y editoriales en un solo lugar</p>
+    <h1>{% trans "Bienvenido a Book Store" %}</h1>
+    <p>{% trans "Tu mundo de libros, autores y editoriales en un solo lugar" %}</p>
 </div>
 
 <section class="detail-box">
-    <h2>¿Qué es Book Store?</h2>
+    <h2>{% trans "¿Qué es Book Store?" %}</h2>
     <p>
-        Book Store es una plataforma donde podrás explorar libros clasificados por
-        editorial y autor. Aquí encontrarás editoriales como Grupo Planeta,
-        Prentice-Hall o Mac Graw Hill, y autores destacados como Umberto Eco,
-        Noam Chomsky o Isaac Asimov.  
-        Además, podrás ver los detalles de cada editorial y cada autor, incluyendo
-        sus obras asociadas. Algunos libros incluso han sido escritos por más de
-        un autor, y podrás descubrirlos todos aquí.
+        {% trans "Book Store es una plataforma donde podrás explorar libros clasificados por editorial y autor. Aquí encontrarás editoriales como Grupo Planeta, Prentice-Hall o Mac Graw Hill, y autores destacados como Umberto Eco, Noam Chomsky o Isaac Asimov. Además, podrás ver los detalles de cada editorial y cada autor, incluyendo sus obras asociadas. Algunos libros incluso han sido escritos por más de un autor, y podrás descubrirlos todos aquí." %}
     </p>
 </section>
 
 <section class="card-list">
     <div class="card">
-        <h3>Explora libros</h3>
-        <p>Descubre todos los títulos disponibles, clasificados por autor y editorial.</p>
-        <a href="{% url 'book_list' %}" class="btn">Ver libros</a>
+        <h3>{% trans "Explora libros" %}</h3>
+        <p>{% trans "Descubre todos los títulos disponibles, clasificados por autor y editorial." %}</p>
+        <a href="{% url 'book_list' %}" class="btn">{% trans "Ver libros" %}</a>
     </div>
     <div class="card">
-        <h3>Conoce los autores</h3>
-        <p>Explora biografías y obras de autores reconocidos y emergentes.</p>
-        <a href="{% url 'author_list' %}" class="btn">Ver autores</a>
+        <h3>{% trans "Conoce los autores" %}</h3>
+        <p>{% trans "Explora biografías y obras de autores reconocidos y emergentes." %}</p>
+        <a href="{% url 'author_list' %}" class="btn">{% trans "Ver autores" %}</a>
     </div>
     <div class="card">
-        <h3>Descubre editoriales</h3>
-        <p>Consulta las editoriales más importantes y los libros que publican.</p>
-        <a href="{% url 'editorial_list' %}" class="btn">Ver editoriales</a>
+        <h3>{% trans "Descubre editoriales" %}</h3>
+        <p>{% trans "Consulta las editoriales más importantes y los libros que publican." %}</p>
+        <a href="{% url 'editorial_list' %}" class="btn">{% trans "Ver editoriales" %}</a>
     </div>
 </section>
 
-<h3>Libros destacados por editorial</h3>
+<h3>{% trans "Libros destacados por editorial" %}</h3>
 
 <div class="card-list">
     {% for editorial, book in featured_books.items %}
         <div class="card">
             <h4>{{ book.title }}</h4>
-            <p><strong>Editorial:</strong> {{ editorial.name }}</p>
-            <a href="{% url 'book_detail' book.pk %}" class="btn">Ver detalles</a>
+            <p><strong>{% trans "Editorial:" %}</strong> {{ editorial.name }}</p>
+            <a href="{% url 'book_detail' book.pk %}" class="btn">{% trans "Ver detalles" %}</a>
         </div>
     {% empty %}
-        <p>No hay libros destacables aún.</p>
+        <p>{% trans "No hay libros destacables aún." %}</p>
     {% endfor %}
 </div>
 

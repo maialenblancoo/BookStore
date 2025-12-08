@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from .models import Book, Author, Editorial
+from django.contrib import messages
+from .forms import BookForm
 
 def index(request):
     editorials = Editorial.objects.all()
@@ -42,3 +44,15 @@ def editorial_list(request):
 def editorial_detail(request, pk):
     editorial = get_object_or_404(Editorial, pk=pk)
     return render(request, 'bookstore/editorial_detail.html', {'editorial': editorial})
+
+def book_create(request):
+    if request.method == "POST":
+        form = BookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "El libro ha sido creado correctamente.")
+            return redirect('book_list')
+    else:
+        form = BookForm()
+
+    return render(request, 'bookstore/book_form.html', {'form': form})

@@ -1,23 +1,39 @@
 {% extends 'bookstore/base.html' %}
 {% load static %}
+{% load i18n %}
+
 {% block title %}{{ book.title }}{% endblock %}
+
 {% block content %}
 
 <div class="detail-box">
     <h2>{{ book.title }}</h2>
-    <p><strong>Año de publicación:</strong> {{ book.publication_year }}</p>
-    <p><strong>Editorial:</strong>
+
+    <p>
+        <strong>{% trans "Año de publicación:" %}</strong>
+        {{ book.publication_year }}
+    </p>
+
+    <p>
+        <strong>{% trans "Editorial:" %}</strong>
         <a href="{% url 'editorial_detail' book.editorial.pk %}">
             {{ book.editorial.name }}
         </a>
     </p>
-    <p><strong>Autores:</strong>
-    {% for author in book.authors.all %}
-        <a href="{% url 'author_detail' author.pk %}">{{ author.name }}</a>{% if not forloop.last %}, {% endif %}
-    {% endfor %}
+
+    <p>
+        <strong>{% trans "Autores:" %}</strong>
+        {% for author in book.authors.all %}
+            <a href="{% url 'author_detail' author.pk %}">{{ author.name }}</a>
+            {% if not forloop.last %}, {% endif %}
+        {% endfor %}
     </p>
-    <p>Disfruta de este libro y descubre más obras similares en nuestra colección.</p>
-    <a href="{% url 'book_list' %}" class="link-btn">Volver a la lista</a>
+
+    <p>{% trans "Disfruta de este libro y descubre más obras similares en nuestra colección." %}</p>
+
+    <a href="{% url 'book_list' %}" class="link-btn">
+        {% trans "Volver a la lista" %}
+    </a>
 </div>
 
 {% endblock %}

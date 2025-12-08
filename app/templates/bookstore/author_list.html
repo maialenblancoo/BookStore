@@ -1,21 +1,36 @@
 {% extends 'bookstore/base.html' %}
 {% load static %}
-{% block title %}Autores — Book Store{% endblock %}
+{% load i18n %}
+
+{% block title %}{% trans "Autores — Book Store" %}{% endblock %}
 
 {% block content %}
-<h2>Autores</h2>
-<p>Conoce a los escritores que dan vida a los libros de nuestra tienda. Explora sus obras, descubre sus estilos y encuentra tus próximos autores favoritos.</p>
+<h2>{% trans "Autores" %}</h2>
+
+<p>
+    {% trans "Conoce a los escritores que dan vida a los libros de nuestra tienda. Explora sus obras, descubre sus estilos y encuentra tus próximos autores favoritos." %}
+</p>
 
 <div class="card-list">
 {% for author in authors %}
     <div class="card">
         <h3>{{ author.name }}</h3>
-        <p><strong>Año de nacimiento:</strong> {{ author.birth_year }}</p>
-        <p>Descubre las obras escritas por este autor y su contribución a la literatura.</p>
-        <a href="{% url 'author_detail' author.pk %}" class="btn">Ver detalles</a>
+
+        <p>
+            <strong>{% trans "Año de nacimiento:" %}</strong> {{ author.birth_year }}
+        </p>
+
+        <p>
+            {% trans "Descubre las obras escritas por este autor y su contribución a la literatura." %}
+        </p>
+
+        <a href="{% url 'author_detail' author.pk %}" class="btn">
+            {% trans "Ver detalles" %}
+        </a>
     </div>
+
 {% empty %}
-    <p>No hay autores registrados.</p>
+    <p>{% trans "No hay autores registrados." %}</p>
 {% endfor %}
 </div>
 

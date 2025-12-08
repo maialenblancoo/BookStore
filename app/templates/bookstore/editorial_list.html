@@ -1,24 +1,40 @@
 {% extends 'bookstore/base.html' %}
 {% load static %}
-{% block title %}Editoriales — Book Store{% endblock %}
+{% load i18n %}
+
+{% block title %}{% trans "Editoriales — Book Store" %}{% endblock %}
 
 {% block content %}
-<h2>Editoriales</h2>
-<p>Explora las editoriales que publican las obras disponibles en Book Store. Conoce su historia, su catálogo y los autores con los que colaboran.</p>
+<h2>{% trans "Editoriales" %}</h2>
+
+<p>
+    {% trans "Explora las editoriales que publican las obras disponibles en Book Store. Conoce su historia, su catálogo y los autores con los que colaboran." %}
+</p>
 
 <div class="card-list">
 {% for editorial in editorials %}
     <div class="card">
         <h3>{{ editorial.name }}</h3>
-        {% if editorial.description %}
-            <p>{{ editorial.description|truncatewords:20 }}</p>
+
+        {% get_current_language as LANGUAGE_CODE %}
+
+        {% if LANGUAGE_CODE == "en" %}
+            <p><em>{% trans "Description not available in this language." %}</em></p>
         {% else %}
-            <p><em>Esta editorial no tiene descripción disponible.</em></p>
+            {% if editorial.description %}
+                <p>{{ editorial.description|truncatewords:20 }}</p>
+            {% else %}
+                <p><em>{% trans "Esta editorial no tiene descripción disponible." %}</em></p>
+            {% endif %}
         {% endif %}
-        <a href="{% url 'editorial_detail' editorial.pk %}" class="btn">Ver detalles</a>
+
+        <a href="{% url 'editorial_detail' editorial.pk %}" class="btn">
+            {% trans "Ver detalles" %}
+        </a>
     </div>
+
 {% empty %}
-    <p>No hay editoriales disponibles.</p>
+    <p>{% trans "No hay editoriales disponibles." %}</p>
 {% endfor %}
 </div>
 

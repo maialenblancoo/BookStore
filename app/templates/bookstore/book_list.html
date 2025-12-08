@@ -1,28 +1,71 @@
 {% extends 'bookstore/base.html' %}
 {% load static %}
-{% block title %}Libros — Book Store{% endblock %}
+{% load i18n %}
+
+{% block title %}{% trans "Libros — Book Store" %}{% endblock %}
+
 {% block content %}
 
-<h2>Catálogo de libros</h2>
-<p>Explora nuestra colección de libros organizados por editorial y autor. Cada título incluye información detallada sobre su publicación.</p>
+<h2>{% trans "Catálogo de libros" %}</h2>
+
+<div class="top-actions">
+    <a href="{% url 'book_create' %}" class="button">
+        {% trans "Añadir libro" %}
+    </a>
+</div>
+
+<input type="text" id="bookSearch" placeholder="{% trans 'Buscar libro...' %}" class="search-box">
+
+<p>
+    {% trans "Explora nuestra colección de libros organizados por editorial y autor. Cada título incluye información detallada sobre su publicación." %}
+</p>
 
 <div class="card-list">
 {% for book in books %}
     <div class="card">
         <h3>{{ book.title }}</h3>
-        <p><strong>Editorial:</strong>
-            <a href="{% url 'editorial_detail' book.editorial.pk %}">{{ book.editorial.name }}</a>
+
+        <p>
+            <strong>{% trans "Editorial:" %}</strong>
+            <a href="{% url 'editorial_detail' book.editorial.pk %}">
+                {{ book.editorial.name }}
+            </a>
         </p>
-        <p><strong>Autores:</strong>
-        {% for author in book.authors.all %}
-            <a href="{% url 'author_detail' author.pk %}">{{ author.name }}</a>{% if not forloop.last %}, {% endif %}
-        {% endfor %}
+
+        <p>
+            <strong>{% trans "Autores:" %}</strong>
+            {% for author in book.authors.all %}
+                <a href="{% url 'author_detail' author.pk %}">{{ author.name }}</a>
+                {% if not forloop.last %}, {% endif %}
+            {% endfor %}
         </p>
-        <a href="{% url 'book_detail' book.pk %}" class="btn">Ver detalles</a>
+
+        <a href="{% url 'book_detail' book.pk %}" class="btn">
+            {% trans "Ver detalles" %}
+        </a>
     </div>
+
 {% empty %}
-    <p>No hay libros disponibles.</p>
+    <p>{% trans "No hay libros disponibles." %}</p>
 {% endfor %}
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("bookSearch");
+    const cards = document.querySelectorAll(".card");
+
+    searchInput.addEventListener("input", function () {
+        const filter = searchInput.value.toLowerCase();
+
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = text.includes(filter) ? "" : "none";
+        });
+    });
+});
+</script>
 {% endblock %}

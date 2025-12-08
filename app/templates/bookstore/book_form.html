@@ -1,0 +1,41 @@
+{% extends 'bookstore/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Nuevo libro — Book Store" %}{% endblock %}
+
+{% block content %}
+
+<h2>{% trans "Crear un nuevo libro" %}</h2>
+
+<div class="form-container">
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">{% trans "Título" %}</label>
+            {{ form.title }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.editorial.id_for_label }}">{% trans "Editorial" %}</label>
+            {{ form.editorial }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.authors.id_for_label }}">{% trans "Autores" %}</label>
+            {{ form.authors }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.publication_year.id_for_label }}">{% trans "Año de publicación" %}</label>
+            {{ form.publication_year }}
+        </div>
+
+        <button type="submit" class="button">{% trans "Guardar libro" %}</button>
+    </form>
+
+    <a href="{% url 'book_list' %}" class="back-link">← {% trans "Volver al listado" %}</a>
+</div>
+
+{% endblock %}

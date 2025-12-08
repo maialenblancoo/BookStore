@@ -1,0 +1,103 @@
+[
+  {
+    "model": "app.editorial",
+    "pk": 1,
+    "fields": {
+      "name": "Grupo Planeta",
+      "description": "Editorial líder en el mercado hispanohablante."
+    }
+  },
+  {
+    "model": "app.editorial",
+    "pk": 2,
+    "fields": {
+      "name": "Prentice Hall",
+      "description": "Reconocida editorial especializada en libros educativos."
+    }
+  },
+  {
+    "model": "app.editorial",
+    "pk": 3,
+    "fields": {
+      "name": "Mac Graw Hill",
+      "description": "Editorial centrada en títulos de formación y tecnología."
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 1,
+    "fields": {
+      "first_name": "Umberto",
+      "last_name": "Eco",
+      "birth_year": 1932
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 2,
+    "fields": {
+      "first_name": "Noam",
+      "last_name": "Chomsky",
+      "birth_year": 1928
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 3,
+    "fields": {
+      "first_name": "Isaac",
+      "last_name": "Asimov",
+      "birth_year": 1920
+    }
+  },
+  {
+    "model": "app.book",
+    "pk": 1,
+    "fields": {
+      "title": "El nombre de la rosa",
+      "publication_year": 1980,
+      "editorial": 1,
+      "authors": [1]
+    }
+  },
+  {
+    "model": "app.book",
+    "pk": 2,
+    "fields": {
+      "title": "Understanding Syntax",
+      "publication_year": 1995,
+      "editorial": 2,
+      "authors": [2]
+    }
+  },
+  {
+    "model": "app.book",
+    "pk": 3,
+    "fields": {
+      "title": "Foundation",
+      "publication_year": 1951,
+      "editorial": 3,
+      "authors": [3]
+    }
+  },
+  {
+    "model": "app.book",
+    "pk": 4,
+    "fields": {
+      "title": "La estructura del lenguaje",
+      "publication_year": 1970,
+      "editorial": 2,
+      "authors": [2]
+    }
+  },
+  {
+    "model": "app.book",
+    "pk": 5,
+    "fields": {
+      "title": "El péndulo de Foucault",
+      "publication_year": 1988,
+      "editorial": 1,
+      "authors": [1]
+    }
+  }
+]

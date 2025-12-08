@@ -1,0 +1,300 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-07 22:10-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\app\templates\bookstore\author_detail.html:12
+#: .\app\templates\bookstore\author_list.html:20
+msgid "Año de nacimiento:"
+msgstr "Year of birth:"
+
+#: .\app\templates\bookstore\author_detail.html:14
+msgid ""
+"Explora las obras de este autor y su contribución a la literatura moderna."
+msgstr ""
+"Explore this author's works and their contribution to modern literature."
+
+#: .\app\templates\bookstore\author_detail.html:16
+msgid "Libros:"
+msgstr "Books:"
+
+#: .\app\templates\bookstore\author_detail.html:22
+#: .\app\templates\bookstore\editorial_detail.html:35
+msgid "No hay libros registrados."
+msgstr "No books registered."
+
+#: .\app\templates\bookstore\author_detail.html:27
+#: .\app\templates\bookstore\editorial_detail.html:40
+msgid "Volver"
+msgstr "Back"
+
+#: .\app\templates\bookstore\author_list.html:5
+msgid "Autores — Book Store"
+msgstr "Authors — Book Store"
+
+#: .\app\templates\bookstore\author_list.html:8
+#: .\app\templates\bookstore\base.html:25
+#: .\app\templates\bookstore\book_form.html:26
+msgid "Autores"
+msgstr "Authors"
+
+#: .\app\templates\bookstore\author_list.html:11
+msgid ""
+"Conoce a los escritores que dan vida a los libros de nuestra tienda. Explora "
+"sus obras, descubre sus estilos y encuentra tus próximos autores favoritos."
+msgstr ""
+"Meet the writers who bring our bookstore's titles to life. Explore their "
+"works, discover their styles, and find your next favorite authors."
+
+#: .\app\templates\bookstore\author_list.html:24
+msgid ""
+"Descubre las obras escritas por este autor y su contribución a la literatura."
+msgstr ""
+"Discover the works written by this author and their contribution to "
+"literature."
+
+#: .\app\templates\bookstore\author_list.html:28
+#: .\app\templates\bookstore\book_list.html:44
+#: .\app\templates\bookstore\editorial_detail.html:31
+#: .\app\templates\bookstore\editorial_list.html:32
+#: .\app\templates\bookstore\index.html:46
+msgid "Ver detalles"
+msgstr "See details"
+
+#: .\app\templates\bookstore\author_list.html:33
+msgid "No hay autores registrados."
+msgstr "No authors registered."
+
+#: .\app\templates\bookstore\base.html:8 .\app\templates\bookstore\base.html:18
+#: .\app\templates\bookstore\base.html:38
+msgid "Book Store"
+msgstr "Book Store"
+
+#: .\app\templates\bookstore\base.html:22
+msgid "Inicio"
+msgstr "Home"
+
+#: .\app\templates\bookstore\base.html:23
+msgid "Libros"
+msgstr "Books"
+
+#: .\app\templates\bookstore\base.html:24
+#: .\app\templates\bookstore\editorial_list.html:8
+msgid "Editoriales"
+msgstr "Publishers"
+
+#: .\app\templates\bookstore\base.html:39
+msgid "Explora libros, autores y editoriales."
+msgstr "Explore books, authors, and publishers."
+
+#: .\app\templates\bookstore\base.html:40
+msgid "Book Store — Todos los derechos reservados."
+msgstr "Book Store — All rights reserved."
+
+#: .\app\templates\bookstore\book_detail.html:13
+msgid "Año de publicación:"
+msgstr "Year of publication:"
+
+#: .\app\templates\bookstore\book_detail.html:18
+#: .\app\templates\bookstore\book_list.html:29
+#: .\app\templates\bookstore\index.html:45
+msgid "Editorial:"
+msgstr "Publisher:"
+
+#: .\app\templates\bookstore\book_detail.html:25
+#: .\app\templates\bookstore\book_list.html:36
+msgid "Autores:"
+msgstr "Authors:"
+
+#: .\app\templates\bookstore\book_detail.html:32
+msgid ""
+"Disfruta de este libro y descubre más obras similares en nuestra colección."
+msgstr "Enjoy this book and discover more similar works in our collection."
+
+#: .\app\templates\bookstore\book_detail.html:35
+msgid "Volver a la lista"
+msgstr "Back to the list"
+
+#: .\app\templates\bookstore\book_form.html:5
+msgid "Nuevo libro — Book Store"
+msgstr "New book — Book Store"
+
+#: .\app\templates\bookstore\book_form.html:9
+msgid "Crear un nuevo libro"
+msgstr "Create a new book"
+
+#: .\app\templates\bookstore\book_form.html:16
+msgid "Título"
+msgstr "Title"
+
+#: .\app\templates\bookstore\book_form.html:21
+msgid "Editorial"
+msgstr "Publisher"
+
+#: .\app\templates\bookstore\book_form.html:31
+msgid "Año de publicación"
+msgstr "Year of publication"
+
+#: .\app\templates\bookstore\book_form.html:35
+msgid "Guardar libro"
+msgstr "Save book"
+
+#: .\app\templates\bookstore\book_form.html:38
+msgid "Volver al listado"
+msgstr "Back to the list"
+
+#: .\app\templates\bookstore\book_list.html:5
+msgid "Libros — Book Store"
+msgstr "Books — Book Store"
+
+#: .\app\templates\bookstore\book_list.html:9
+msgid "Catálogo de libros"
+msgstr "Book catalog"
+
+#: .\app\templates\bookstore\book_list.html:13
+msgid "Añadir libro"
+msgstr "Add book"
+
+#: .\app\templates\bookstore\book_list.html:17
+msgid "Buscar libro..."
+msgstr "Search book..."
+
+#: .\app\templates\bookstore\book_list.html:20
+msgid ""
+"Explora nuestra colección de libros organizados por editorial y autor. Cada "
+"título incluye información detallada sobre su publicación."
+msgstr ""
+"Explore our collection of books organized by publisher and author. Each "
+"title includes detailed information about its publication."
+
+#: .\app\templates\bookstore\book_list.html:49
+msgid "No hay libros disponibles."
+msgstr "No books available."
+
+#: .\app\templates\bookstore\editorial_detail.html:15
+#: .\app\templates\bookstore\editorial_list.html:22
+msgid "Description not available in this language."
+msgstr "Description not available in this language."
+
+#: .\app\templates\bookstore\editorial_detail.html:20
+msgid "This publisher has no description."
+msgstr "This publisher has no description."
+
+#: .\app\templates\bookstore\editorial_detail.html:24
+msgid "Libros publicados:"
+msgstr "Published books:"
+
+#: .\app\templates\bookstore\editorial_list.html:5
+msgid "Editoriales — Book Store"
+msgstr "Publishers — Book Store"
+
+#: .\app\templates\bookstore\editorial_list.html:11
+msgid ""
+"Explora las editoriales que publican las obras disponibles en Book Store. "
+"Conoce su historia, su catálogo y los autores con los que colaboran."
+msgstr ""
+"Explore the publishers that release the works available in Book Store. Learn "
+"about their history, their catalog, and the authors they collaborate with."
+
+#: .\app\templates\bookstore\editorial_list.html:27
+msgid "Esta editorial no tiene descripción disponible."
+msgstr "This publisher has no description available."
+
+#: .\app\templates\bookstore\editorial_list.html:37
+msgid "No hay editoriales disponibles."
+msgstr "No publishers available."
+
+#: .\app\templates\bookstore\index.html:5
+msgid "Inicio — Book Store"
+msgstr "Home — Book Store"
+
+#: .\app\templates\bookstore\index.html:10
+msgid "Bienvenido a Book Store"
+msgstr "Welcome to Book Store"
+
+#: .\app\templates\bookstore\index.html:11
+msgid "Tu mundo de libros, autores y editoriales en un solo lugar"
+msgstr "Your world of books, authors, and publishers in one place"
+
+#: .\app\templates\bookstore\index.html:15
+msgid "¿Qué es Book Store?"
+msgstr "What is Book Store?"
+
+#: .\app\templates\bookstore\index.html:17
+msgid ""
+"Book Store es una plataforma donde podrás explorar libros clasificados por "
+"editorial y autor. Aquí encontrarás editoriales como Grupo Planeta, Prentice-"
+"Hall o Mac Graw Hill, y autores destacados como Umberto Eco, Noam Chomsky o "
+"Isaac Asimov. Además, podrás ver los detalles de cada editorial y cada "
+"autor, incluyendo sus obras asociadas. Algunos libros incluso han sido "
+"escritos por más de un autor, y podrás descubrirlos todos aquí."
+msgstr ""
+"Book Store is a platform where you can explore books classified by publisher "
+"and author. Here you will find publishers such as Grupo Planeta, Prentice-"
+"Hall or Mac Graw Hill, and notable authors such as Umberto Eco, Noam Chomsky "
+"or Isaac Asimov. You can also view details of each publisher and each "
+"author, including their associated works. Some books have even been written "
+"by more than one author, and you can discover them all here."
+
+#: .\app\templates\bookstore\index.html:23
+msgid "Explora libros"
+msgstr "Explore books"
+
+#: .\app\templates\bookstore\index.html:24
+msgid ""
+"Descubre todos los títulos disponibles, clasificados por autor y editorial."
+msgstr "Discover all available titles, classified by author and publisher."
+
+#: .\app\templates\bookstore\index.html:25
+msgid "Ver libros"
+msgstr "See books"
+
+#: .\app\templates\bookstore\index.html:28
+msgid "Conoce los autores"
+msgstr "Meet the authors"
+
+#: .\app\templates\bookstore\index.html:29
+msgid "Explora biografías y obras de autores reconocidos y emergentes."
+msgstr "Explore biographies and works of renowned and emerging authors."
+
+#: .\app\templates\bookstore\index.html:30
+msgid "Ver autores"
+msgstr "See authors"
+
+#: .\app\templates\bookstore\index.html:33
+msgid "Descubre editoriales"
+msgstr "Discover publishers"
+
+#: .\app\templates\bookstore\index.html:34
+msgid "Consulta las editoriales más importantes y los libros que publican."
+msgstr "Browse major publishers and the books they publish."
+
+#: .\app\templates\bookstore\index.html:35
+msgid "Ver editoriales"
+msgstr "See publishers"
+
+#: .\app\templates\bookstore\index.html:39
+msgid "Libros destacados por editorial"
+msgstr "Featured books by publisher"
+
+#: .\app\templates\bookstore\index.html:49
+msgid "No hay libros destacables aún."
+msgstr "No notable books yet."
+
+#~ msgid "Esta editorial no tiene descripción."
+#~ msgstr "This publisher has no description."
