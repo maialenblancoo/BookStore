@@ -1,58 +1,69 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
-from .models import Book, Author, Editorial
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.urls import reverse_lazy
 from django.contrib import messages
+
+from .models import Book, Author, Editorial
 from .forms import BookForm
 
-def index(request):
-    editorials = Editorial.objects.all()
-    featured_books = {}
+class IndexView(TemplateView):
+    template_name = "bookstore/index.html"
 
-    for editorial in editorials:
-        latest_book = (
-            Book.objects
-            .filter(editorial=editorial)
-            .order_by('-publication_year')
-            .first()
-        )
-        if latest_book:
-            featured_books[editorial] = latest_book
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
 
-    return render(request, 'bookstore/index.html', {
-        'featured_books': featured_books
-    })
+        editorials = Editorial.objects.all()
+        featured_books = {}
 
-def book_list(request):
-    books = get_list_or_404(Book)
-    return render(request, 'bookstore/book_list.html', {'books': books})
+        for editorial in editorials:
+            latest_book = (
+                Book.objects
+                .filter(editorial=editorial)
+                .order_by('-publication_year')
+                .first()
+            )
+            if latest_book:
+                featured_books[editorial] = latest_book
 
-def book_detail(request, pk):
-    book = get_object_or_404(Book, pk=pk)
-    return render(request, 'bookstore/book_detail.html', {'book': book})
+        context["featured_books"] = featured_books
+        return context
 
-def author_list(request):
-    authors = get_list_or_404(Author)
-    return render(request, 'bookstore/author_list.html', {'authors': authors})
+class BookListView(ListView):
+    model = Book
+    template_name = "bookstore/book_list.html"
+    context_object_name = "books"
 
-def author_detail(request, pk):
-    author = get_object_or_404(Author, pk=pk)
-    return render(request, 'bookstore/author_detail.html', {'author': author})
 
-def editorial_list(request):
-    editorials = get_list_or_404(Editorial)
-    return render(request, 'bookstore/editorial_list.html', {'editorials': editorials})
+class BookDetailView(DetailView):
+    model = Book
+    template_name = "bookstore/book_detail.html"
+    context_object_name = "book"
 
-def editorial_detail(request, pk):
-    editorial = get_object_or_404(Editorial, pk=pk)
-    return render(request, 'bookstore/editorial_detail.html', {'editorial': editorial})
+class BookCreateView(CreateView):
+    model = Book
+    template_name = "bookstore/book_form.html"
+    form_class = BookForm
+    success_url = reverse_lazy("book_list")
 
-def book_create(request):
-    if request.method == "POST":
-        form = BookForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "El libro ha sido creado correctamente.")
-            return redirect('book_list')
-    else:
-        form = BookForm()
+    def form_valid(self, form):
+        messages.success(self.request, "El libro ha sido creado correctamente.")
+        return super().form_valid(form)
 
-    return render(request, 'bookstore/book_form.html', {'form': form})
+class AuthorListView(ListView):
+    model = Author
+    template_name = "bookstore/author_list.html"
+    context_object_name = "authors"
+
+class AuthorDetailView(DetailView):
+    model = Author
+    template_name = "bookstore/author_detail.html"
+    context_object_name = "author"
+
+class EditorialListView(ListView):
+    model = Editorial
+    template_name = "bookstore/editorial_list.html"
+    context_object_name = "editorials"
+
+class EditorialDetailView(DetailView):
+    model = Editorial
+    template_name = "bookstore/editorial_detail.html"
+    context_object_name = "editorial"

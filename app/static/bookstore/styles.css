@@ -421,3 +421,17 @@ footer p {
         padding: 0 15px;
     }
 }
+
+.alert {
+    padding: 12px 18px;
+    background: #e0ffe4;
+    border-left: 4px solid #2ecc71;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.alert.success {
+    background: #e0ffe4;
+    border-left-color: #27ae60;
+}
